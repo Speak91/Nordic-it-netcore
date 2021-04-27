@@ -2,18 +2,21 @@
 using System.Diagnostics;
 
 namespace Calculator
+
 {
+
     class Program
     {
+
         static void Main(string[] args)
         {
             int width = 95;
             int height = 23;
             Console.SetWindowSize(width, height);
-            int operationselection = 0;
-            double firstnumber = 0;
-            double secondnumber = 0;
-            string testnumber = string.Empty;
+            int operationSelection = 0;
+            double firstNumber = 0;
+            double secondNumber = 0;
+            string testNumber = string.Empty;
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Добро пожаловать в калькулятор, для начала выберите номер операции которую хотите осуществить");
             Console.WriteLine(@"1. Сложение
@@ -23,15 +26,16 @@ namespace Calculator
 5. Возведение в степень");
             try
             {
-                operationselection = int.Parse(Console.ReadLine());
-                while (operationselection < 1 | operationselection > 5)
+                operationSelection = int.Parse(Console.ReadLine());
+                while (operationSelection < 1 | operationSelection > 5)
                 {
                     Console.WriteLine("Такой операции не существует повторите попытку");
-                    operationselection = int.Parse(Console.ReadLine());
+                    operationSelection = int.Parse(Console.ReadLine());
                 }
 
-                OperationSelection(operationselection);
+                OperationSelection(operationSelection);
             }
+
             catch
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -39,25 +43,29 @@ namespace Calculator
                 Console.ReadKey();
                 Process.GetCurrentProcess().Kill();
             }
-            if (operationselection == 5) //Возведение в степень
+
+            if (operationSelection == 5) //Возведение в степень
             {
                 Console.WriteLine("Введите число");
-                firstnumber = NumberTest(testnumber);
+                firstNumber = NumberTest(testNumber);
                 Console.WriteLine("Введите степень в какую хотите возвести число");
-                secondnumber = NumberTest(testnumber);
+                secondNumber = NumberTest(testNumber);
             }
+
             else
             {
                 Console.WriteLine("Введите первое число");
-                firstnumber = NumberTest(testnumber);
+                firstNumber = NumberTest(testNumber);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Введите второе число");
-                secondnumber = NumberTest(testnumber);
+                secondNumber = NumberTest(testNumber);
             }
-            Operation(operationselection, firstnumber, secondnumber);
+
+            Operation(operationSelection, firstNumber, secondNumber);
             Console.WriteLine("Для выхода нажмите любую кнопку");
             Console.ReadKey();
         }
+
         static void OperationSelection(int num) //Выбор операции
         {
             switch (num)
@@ -80,8 +88,10 @@ namespace Calculator
                 default:
                     break;
             }
+
         }
-        static double NumberTest (string testnumber) //Проверка на ввод числа
+
+        static double NumberTest (string testNumber) //Проверка на ввод числа
         {
             double number = 0;
             while (!double.TryParse(Console.ReadLine(), out number))
@@ -89,32 +99,35 @@ namespace Calculator
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Введено неверное значение, повторите попытку");
             }
+
             return number;
         }
-        static void Operation(int operationselection, double firsnumber, double secondnumber) //проведение вычислений
+
+        static void Operation(int operationSelection, double firsNumber, double secondNumber) //проведение вычислений
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            switch (operationselection)
+            switch (operationSelection)
             {
                 case 1:
-                    Console.WriteLine($"Результат сложения {firsnumber} + {secondnumber} = {firsnumber + secondnumber}");
+                    Console.WriteLine($"Результат сложения {firsNumber} + {secondNumber} = {firsNumber + secondNumber}");
                     break;
                 case 2:
-                    Console.WriteLine($"Результат вычитания {firsnumber} - {secondnumber} = {firsnumber - secondnumber}");
+                    Console.WriteLine($"Результат вычитания {firsNumber} - {secondNumber} = {firsNumber - secondNumber}");
                     break;
                 case 3:
-                    Console.WriteLine($"Результат умножения {firsnumber} * {secondnumber} = {firsnumber * secondnumber}");
+                    Console.WriteLine($"Результат умножения {firsNumber} * {secondNumber} = {firsNumber * secondNumber}");
                     break;
                 case 4:
-                    if (firsnumber == 0 || secondnumber == 0)
+                    if (firsNumber == 0 || secondNumber == 0)
                     {
-                        Console.WriteLine($"Результат деления {firsnumber} / {secondnumber} = 0");
+                        Console.WriteLine($"Результат деления {firsNumber} / {secondNumber} = 0");
                         break;
                     }
-                    Console.WriteLine($"Результат деления {firsnumber} / {secondnumber} = {firsnumber / secondnumber}");
+
+                    Console.WriteLine($"Результат деления {firsNumber} / {secondNumber} = {firsNumber / secondNumber}");
                     break;
                 case 5:
-                    Console.WriteLine($"{firsnumber} в степени {secondnumber} = {Math.Pow(firsnumber, secondnumber)}");
+                    Console.WriteLine($"{firsNumber} в степени {secondNumber} = {Math.Pow(firsNumber, secondNumber)}");
                     break;
                 default:
                     break;
