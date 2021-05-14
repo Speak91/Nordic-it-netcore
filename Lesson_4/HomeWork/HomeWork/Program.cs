@@ -1,26 +1,34 @@
 ﻿using System;
 
-namespace HomeWork
+namespace ConsoleApp18
 {
     class Program
     {
-
         [Flags]
 
-        enum Packaging
+        enum PacketSizes
         {
-            packingVolumeOf1Liters = 0001,
-            packingVolumeOf5Liters = 0b0101,
-            packingVolumeOf20Liters = 0b010100
+            Small = 1,   // 0x0000001
+            Medium = 1 << 1,  // 0x0000010
+            Large = 1 << 2,   // 0x0000100
         }
 
         static void Main(string[] args)
         {
-            int width = 83;
-            int height = 25;
+            const int packetSizeS = 1;
+            const int packetSizeM = 5;
+            const int packetSizeL = 20;
 
-            double input = 0;
-            Console.SetWindowSize(width, height);
+            int numberOfLargePackets = 0; //переменная для записи количества больших пакетов
+            int numberOfMediumPackets = 0; //переменная для записи количества средних пакетов
+            int numberOfSmallPackets = 0; //переменная для записи количества маленьких пакетов
+
+            double input = 0; //Запись ввода пользователя
+
+            PacketSizes usedPacketSizes = 0;
+
+            int remainderDivision = 0; //переменная для записи остатка от деления
+
             Console.WriteLine("Данная программа позволит расчитать, какое количество упаковок обьемом 1л, 5л, 20л \nпотребуется для упаковки вашего сока");
             Console.WriteLine("Какой объем сока (в литрах) требуется упаковать?");
 
@@ -29,46 +37,52 @@ namespace HomeWork
                 Console.WriteLine("Неправильный ввод повторите попытку");
             }
 
-            int value = (int)Math.Ceiling(input); //округление 
-            int remainderDivision = 0; //переменная для записи остатка от деления
-            int result = 0; //результат деления
+            int value = (int)Math.Ceiling(input); //округление
 
-            var a = Convert.ToInt32(Packaging.packingVolumeOf1Liters);
-            var b = Convert.ToInt32(Packaging.packingVolumeOf5Liters);
-            var c = Convert.ToInt32(Packaging.packingVolumeOf20Liters);
+            numberOfLargePackets = value / packetSizeL;
+            remainderDivision = value % packetSizeL;
 
-            result = value / c; //Расчет необходимого количества 20 литровых упаковок
-            remainderDivision = value % c;
-
-            Console.WriteLine("Вам потребуются следующие контейнеры: ");
-            Console.WriteLine($"20 л: {result}шт.");
-
-            if (remainderDivision <= 0) //Проверка на отсутствие остатка
+            if (remainderDivision > 0)
             {
-                Console.WriteLine("Для закрытия программы нажмите любую кнопку");
-                Console.ReadKey();
-                return;
+
+                numberOfMediumPackets = remainderDivision / packetSizeM;
+                remainderDivision = remainderDivision % packetSizeM;
+
+                if (remainderDivision > 0)
+                {
+                    numberOfSmallPackets = remainderDivision;
+                }
+
             }
 
-            result = remainderDivision / b; //Расчет необходимого количества 5 литровых упаковок
-            remainderDivision = remainderDivision % b; ////Расчет необходимого количества литровых упаковок
+            if (numberOfLargePackets > 0)
+                usedPacketSizes = usedPacketSizes | PacketSizes.Large;
 
-            if (result > 0)
+            if (numberOfMediumPackets > 0)
+                usedPacketSizes = usedPacketSizes | PacketSizes.Medium;
+
+            if (numberOfSmallPackets > 0)
+                usedPacketSizes = usedPacketSizes | PacketSizes.Small;
+
+            if ((usedPacketSizes & PacketSizes.Large) > 0)
             {
-                Console.WriteLine($"5 л: {result}шт.");
+                Console.WriteLine("Вам потребуются следующие контейнеры: ");
+                Console.WriteLine($"{packetSizeL} л: {numberOfLargePackets} шт.");
             }
 
-            if (remainderDivision <= 0)
+            if ((usedPacketSizes & PacketSizes.Medium) > 0)
             {
-                Console.WriteLine("Для закрытия программы нажмите любую кнопку");
-                Console.ReadKey();
-                return;
+                Console.WriteLine($"{packetSizeM} л: {numberOfMediumPackets} шт.");
             }
 
-            Console.WriteLine($"1 л: {remainderDivision}шт.");
-            Console.WriteLine("Для закрытия программы нажмите любую кнопку");
+            if ((usedPacketSizes & PacketSizes.Small) > 0)
+            {
+                Console.WriteLine($"{packetSizeS} л: {numberOfSmallPackets} шт.");
+            }
+
+            Console.WriteLine("Для продолжения нажмите любую клавишу");
             Console.ReadKey();
-
         }
+
     }
 }
