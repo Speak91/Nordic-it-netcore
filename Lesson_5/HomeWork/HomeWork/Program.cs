@@ -24,7 +24,11 @@ namespace HomeWork
             double triangleSide = 0;
             double triangleArea = 0;
             double trianglePerimeter = 0;
-            
+
+            string triangle = "Треугольника";
+            string circle = "Круга";
+            string rectangle = "Прямоугольника";
+            string square = "Площадь";
             const double pi = 3.14; 
             
             Console.WriteLine("Выберите тип фигуры: 1 - круг, 2 - равносторонний треугольник, 3 - прямоугольник");
@@ -43,8 +47,9 @@ namespace HomeWork
                         circleDiameter = Convert.ToDouble(Console.ReadLine());
                         circleArea = Math.Pow(circleDiameter, 2) / 4 * pi;
                         circlePerimeter = circleDiameter * pi;
-                        
-                        Console.WriteLine($"Площадь круга: {circleArea}");
+
+                        Print(square, circle, circleArea);
+                        Print("Периметр", circle, circlePerimeter);
                         Console.WriteLine($"Периметр круга: {circlePerimeter}");
                         break;
                     
@@ -70,7 +75,6 @@ namespace HomeWork
                         
                         rectangleArea = rectangleLength * rectangleHeight;
                         rectanglePerimeter = 2 * (rectangleLength + rectangleHeight);
-                        
                         Console.WriteLine($"Площадь поверхности: {rectangleArea}");
                         Console.WriteLine($"Длина периметра: { rectanglePerimeter}");
                         
@@ -92,6 +96,10 @@ namespace HomeWork
                 Console.WriteLine(e);
             }
 
+        }
+        static void Print(string a, string b, double c)
+        {
+            Console.WriteLine($"{a} {b} = {c}" );
         }
     }
 }
