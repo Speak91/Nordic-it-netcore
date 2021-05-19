@@ -43,16 +43,11 @@ namespace HomeWork
                     case Shapes.Сircle:
                         Console.WriteLine("Выбран круг");
                         Console.WriteLine("Введите диаметр");
-                        
                         circleDiameter = Convert.ToDouble(Console.ReadLine());
                         circleArea = Math.Pow(circleDiameter, 2) / 4 * pi;
                         circlePerimeter = circleDiameter * pi;
-
-                        Print(square, circle, circleArea);
-                        Print("Периметр", circle, circlePerimeter);
-                        Console.WriteLine($"Периметр круга: {circlePerimeter}");
+                        Print(circleArea, circlePerimeter);
                         break;
-                    
                     case Shapes.Triangle:
                         Console.WriteLine("Выбран треугольник");
                         Console.WriteLine("Введите длину стороны");
@@ -60,9 +55,7 @@ namespace HomeWork
                         triangleSide = Convert.ToDouble(Console.ReadLine());
                         triangleArea = Math.Pow(triangleSide, 2) * Math.Sqrt(3) / 4;
                         trianglePerimeter = 3 * triangleSide;
-                        
-                        Console.WriteLine($"Площадь треугольника: {triangleArea}");
-                        Console.WriteLine($"Периметр треугольника: {trianglePerimeter}");
+                        Print(triangleArea, trianglePerimeter);
                         break;
                     
                     case Shapes.Rectangle:
@@ -75,8 +68,7 @@ namespace HomeWork
                         
                         rectangleArea = rectangleLength * rectangleHeight;
                         rectanglePerimeter = 2 * (rectangleLength + rectangleHeight);
-                        Console.WriteLine($"Площадь поверхности: {rectangleArea}");
-                        Console.WriteLine($"Длина периметра: { rectanglePerimeter}");
+                        Print(rectangleArea, rectanglePerimeter);
                         
                         break;
                     default:
@@ -97,9 +89,10 @@ namespace HomeWork
             }
 
         }
-        static void Print(string a, string b, double c)
+        static void Print(double square, double perimetr)
         {
-            Console.WriteLine($"{a} {b} = {c}" );
+            Console.WriteLine($"Площадь выбранной фигуры составляет = {square}" );
+            Console.WriteLine($"Периметр выбранной фигуры составляет = {perimetr}");
         }
     }
 }
