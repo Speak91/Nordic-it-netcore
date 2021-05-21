@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_00_string_simple_operations", "Lesson7_00_string_simple_operations\Lesson7_00_string_simple_operations.csproj", "{ABAC17AC-9535-4FE4-AFD3-6A27B857D058}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_01_escape_sequences", "Lesson7_01_escape_sequences\Lesson7_01_escape_sequences.csproj", "{73706954-32E8-49F1-8689-6AB06275767E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_02_string_building_options", "Lesson7_02_string_building_options\Lesson7_02_string_building_options.csproj", "{6509BD3D-A933-40E6-8D0F-64C57A766B65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_04_SW", "Lesson7_04_SW\Lesson7_04_SW.csproj", "{8423DDFF-BD4C-4833-9548-941248AF0C3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_05_string_methods", "Lesson7_05_string_methods\Lesson7_05_string_methods.csproj", "{8B61A4A0-A7B3-4C20-AF34-2200A1959C03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_06_string_builder", "Lesson7_06_string_builder\Lesson7_06_string_builder.csproj", "{137887D4-5558-4970-BB79-CCACD5D8E8DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABAC17AC-9535-4FE4-AFD3-6A27B857D058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAC17AC-9535-4FE4-AFD3-6A27B857D058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAC17AC-9535-4FE4-AFD3-6A27B857D058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAC17AC-9535-4FE4-AFD3-6A27B857D058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73706954-32E8-49F1-8689-6AB06275767E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73706954-32E8-49F1-8689-6AB06275767E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73706954-32E8-49F1-8689-6AB06275767E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73706954-32E8-49F1-8689-6AB06275767E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6509BD3D-A933-40E6-8D0F-64C57A766B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6509BD3D-A933-40E6-8D0F-64C57A766B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6509BD3D-A933-40E6-8D0F-64C57A766B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6509BD3D-A933-40E6-8D0F-64C57A766B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8423DDFF-BD4C-4833-9548-941248AF0C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8423DDFF-BD4C-4833-9548-941248AF0C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8423DDFF-BD4C-4833-9548-941248AF0C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8423DDFF-BD4C-4833-9548-941248AF0C3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B61A4A0-A7B3-4C20-AF34-2200A1959C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B61A4A0-A7B3-4C20-AF34-2200A1959C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B61A4A0-A7B3-4C20-AF34-2200A1959C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B61A4A0-A7B3-4C20-AF34-2200A1959C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{137887D4-5558-4970-BB79-CCACD5D8E8DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137887D4-5558-4970-BB79-CCACD5D8E8DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137887D4-5558-4970-BB79-CCACD5D8E8DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137887D4-5558-4970-BB79-CCACD5D8E8DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A20C639-0A8B-4F65-A9A3-EE7BC7A554EC}
+	EndGlobalSection
+EndGlobal
