@@ -6,32 +6,33 @@ namespace HomeWork_2
     {
         static void Main(string[] args)
         {
-            decimal downPaymentAmount = 0;
-            decimal percentageDailyIncome = 0;
-            decimal accumulationAmount = 0;
-            decimal result = 0;
+            float downPaymentAmount = 0f;
+            float percentageDailyIncome = 0f;
+            float accumulationAmount = 0f;
+            float result = 0f;
             int numberOfDays = 0;
+            float f = 100f;
 
             try
             {
                 Console.WriteLine("Введите сумму первоначального взноса в формате 100,25 где 100 рубли а 25 копейки");
-                downPaymentAmount = Test();
+                downPaymentAmount = CheckingForNumberInput();
 
                 Console.WriteLine("Введите ежедневный процент дохода в виде десятичной дроби (1% = 0.01):");
-                percentageDailyIncome = Test();
+                percentageDailyIncome = CheckingForNumberInput();
 
                 Console.WriteLine("Введите желаемую сумму накопления в рублях:");
-                accumulationAmount = Test();
+                accumulationAmount = CheckingForNumberInput();
 
                 result = downPaymentAmount * percentageDailyIncome;
 
-                while (downPaymentAmount < accumulationAmount)
+                while (f < accumulationAmount)
                 {
                     numberOfDays++;
-                    downPaymentAmount = downPaymentAmount + result;
+                    f *= (1f + result / 100f);
                 }
 
-                Console.WriteLine($"Необходимое количество дней для накопления {accumulationAmount}Р при ставке {Math.Round(result, 1)}% составит {numberOfDays}");
+                Console.WriteLine($"Необходимое количество дней для накопления {accumulationAmount}Р при ставке {Math.Round(result, 2)}% составит {numberOfDays}");
             }
 
             catch (FormatException)
@@ -43,15 +44,13 @@ namespace HomeWork_2
             {
                 Console.WriteLine($"Введенное число превышает допустимое значение");
             }
-          
-          
 
         }
-        static decimal Test()
+        static float CheckingForNumberInput()
         {
-            decimal testValue = 0;
+            float testValue = 0f;
 
-            while (decimal.TryParse(Console.ReadLine(), out testValue) == false || testValue <0)
+            while (float.TryParse(Console.ReadLine(), out testValue) == false || testValue < 0)
             {
                 Console.WriteLine("Введено некоректное значение повторите попытку");
             }
