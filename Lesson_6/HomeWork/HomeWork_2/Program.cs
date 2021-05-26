@@ -24,15 +24,13 @@ namespace HomeWork_2
                 Console.WriteLine("Введите желаемую сумму накопления в рублях:");
                 accumulationAmount = CheckingForNumberInput();
 
-                result = downPaymentAmount * percentageDailyIncome;
-
-                while (f < accumulationAmount)
+                while (downPaymentAmount < accumulationAmount)
                 {
+                    downPaymentAmount += downPaymentAmount * percentageDailyIncome;
                     numberOfDays++;
-                    f *= (1f + result / 100f);
                 }
 
-                Console.WriteLine($"Необходимое количество дней для накопления {accumulationAmount}Р при ставке {Math.Round(result, 2)}% составит {numberOfDays}");
+                Console.WriteLine($"Необходимое количество дней составит {numberOfDays}");
             }
 
             catch (FormatException)
